@@ -81,6 +81,5 @@ Web2.0 application will work in web browser, on any device.
     1. https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
     2. https://github.com/mxrguspxrt/mxrguspxrt.github.io (see this as an example and then 4.3)
     3. https://www.w3schools.com/html/html_responsive.asp
-
-
-
+5. On this simple homepage write a essay on a subject: "Why I am learning in this school, how I hope it helps me in the future, who I want to be when I grow up"
+6. Task 5 will be graded on scale of 1-5 before next class. Send me link to your_user_name.github.io.
