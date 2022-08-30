@@ -7,6 +7,17 @@
 3. What?
 4. When?
 
+## How to learn
+
+Use Google and Youtube search engines. Learn to search for answers for your questions. 
+
+Try: 
+1. https://www.google.com/?q=how%20to%20create%20mobile%20applications
+2. https://www.youtube.com/results?search_query=how+to+create+mobile+applications
+
+Usually Youtube provides very good answers, so step by step, you get smarter, for what to search for.
+
+(Ok, we do some tasks in class, but Youtube is much smarter, than your teacher.)
 
 ## Native Platforms
 
