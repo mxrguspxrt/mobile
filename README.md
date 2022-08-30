@@ -74,10 +74,10 @@ Web2.0 application will work in web browser, on any device.
 
 ## Task:
 
-1. Create yourself a Github account (for example github.com/your_user_name)
-2. Create yourself a new public repository and name it your_user_name.github.io (for example for me it is mxrguspxrt.github.io)
-3. Visit https://mxrguspxrt.github.io/ and your site
-4. Create yourself a simple homepage using Markdown or HTML
+* Create yourself a Github account (for example github.com/your_user_name)
+* Create yourself a new public repository and name it your_user_name.github.io (for example for me it is mxrguspxrt.github.io)
+* Visit https://mxrguspxrt.github.io/ and your site
+* Create yourself a simple homepage using Markdown or HTML
   - https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
   - https://github.com/mxrguspxrt/mxrguspxrt.github.io (see this as an example and then 4.3)
   - https://www.w3schools.com/html/html_responsive.asp
