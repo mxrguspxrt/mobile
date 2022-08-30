@@ -67,5 +67,8 @@ For game development:
 
 1. https://www.w3schools.com/html/html_responsive.asp
 2. https://tailwindcss.com/
+3. https://nextjs.org/
+
+Web2.0 application will work in web browser, on any device.
 
 
