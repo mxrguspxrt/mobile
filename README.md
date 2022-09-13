@@ -83,3 +83,37 @@ Web2.0 application will work in web browser, on any device.
     3. https://www.w3schools.com/html/html_responsive.asp
 5. On this simple homepage write a essay on a subject: "Why I am learning in this school, how I hope it helps me in the future, who I want to be when I grow up"
 6. Task 5 will be graded on scale of 1-5 before next class. Send me link to your_user_name.github.io.
+
+
+## Make teams + pickup startup topic + Start with Figma design (7.09.2022)
+
+By the next class:
+1. Have team
+2. Have idea for startup and Figma landing page design
+3. Next class we start with dev env setup and programming!
+
+
+## React Native (With Expo) (14.09.2022)
+
+1. In this class we will be installing React Native with Expo.
+
+Read why/why not Expo? 
+https://docs.expo.dev/introduction/why-not-expo/
+
+Read documentation + Install React Native:
+https://reactnative.dev/docs/environment-setup
+
+```
+npx create-expo-app Hello
+cd Hello
+npm run android
+npm run ios
+npm run web
+```
+
+Notice, that last 3 commands will give error.
+
+Let's install support for Android: https://developer.android.com/studio (Download Studio)
+Let's install support for IOS: https://developer.android.com/studio (Download Studio)
+
+
