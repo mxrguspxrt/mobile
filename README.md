@@ -128,4 +128,4 @@ Ideally, you will have Android and web running, maybe iOS also. If you have any 
 Task:
 1. Implement at least 1 element (for example Text or Button from your Figma design).
 2. Upload code for Expo project + Link to Figma to Github
-3. Send user the link to Github project
+3. Send the teacher's email the link to Github project 
