@@ -95,25 +95,37 @@ By the next class:
 
 ## React Native (With Expo) (14.09.2022)
 
-1. In this class we will be installing React Native with Expo.
+Today, we will be installing React Native with Expo.
 
-Read why/why not Expo? 
-https://docs.expo.dev/introduction/why-not-expo/
+Install Expo:
+https://docs.expo.dev/get-started/installation/
 
 Read documentation + Install React Native:
 https://reactnative.dev/docs/environment-setup
 
+
+1. Let's install support for Android: https://developer.android.com/studio (Download Studio + run the installer)
+2. Let's install support for IOS: https://developer.apple.com/xcode/ (Download XCode + run the installer)
+3. Let's install support for web: `npx expo install react-native-web@~0.18.7 react-dom@18.0.0 @expo/webpack-config@^0.17.0 # (these are required dependecies)`
+
 ```
 npx create-expo-app Hello
 cd Hello
+
 npm run android
+# https://docs.expo.dev/workflow/android-studio-emulator (here are steps you need to do)
+
 npm run ios
+# this part will be skipped, if you are on Windows machine. But you can test on some OSX machine on your own.
+
+npx expo install react-native-web@~0.18.7 react-dom@18.0.0 @expo/webpack-config@^0.17.0 # (these are required dependecies)
 npm run web
 ```
 
-Notice, that last 3 commands will give error.
-
-Let's install support for Android: https://developer.android.com/studio (Download Studio)
-Let's install support for IOS: https://developer.android.com/studio (Download Studio)
+Ideally, you will have Android and web running, maybe iOS also. If you have any problems, ask teacher or co-student for help.
 
 
+Task:
+1. Implement at least 1 element (for example Text or Button from your Figma design).
+2. Upload code for Expo project + Link to Figma to Github
+3. Send user the link to Github project
