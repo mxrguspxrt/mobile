@@ -153,8 +153,77 @@ Start from understanding how React Native components work:
 1. Read everything from Tutorials section (https://docs.expo.dev/tutorial/planning/)
 2. Read how to use SVG from React Native (https://docs.expo.dev/ui-programming/using-svgs/)
 3. Check different UI libraries supported by React Native (https://docs.expo.dev/guides/userinterface/)
-4. In our next step we will be using https://nativebase.io/ as UI library (Docs -> Installation guide -> Install in Expo project)
-5. You should have opened now https://docs.nativebase.io/install-expo (Use the Plain JS version)
+
+
+### Implement list view for Blog posts
+
+Check this first: https://reactnative.dev/docs/components-and-apis#basic-components
+
+Your initial code looks like this
+
+```
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text>Open up App.js to start working on your app!</Text>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+```
+
+Let's make a new component called BlogPostPreview, that has 3 arguments: title, content and image. 
+
+Important links to read:
+1. https://reactnative.dev/docs/view and **function component**)
+2. https://reactnative.dev/docs/image
+
+
+```
+const BlogPostPreview = ({title, content, imageUrl}) => {
+  return (
+    <View>
+      <Text style={fontSize: "2em"}>{title}</Text>
+      <Text>{content}</Text>
+      <Image
+        source={{
+          uri: imageUrl,
+        }}
+      />
+    </View>
+  );
+};
+```
+
+Try will you get this code to work so that first blog posts previews are listed on the screen?
+
+Hints:
+1. You need to add last code section into existing code.
+2. You need to call it from your code.
+3. You need to add imports.
+
+PLEASE TRY ON YOUR OWN TO GET IT TO WORK!
+
+..
+..
+..
+..
+..
+..
+
+Final code should look something similar to this.
 
 
 
