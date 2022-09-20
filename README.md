@@ -191,7 +191,7 @@ Important links to read:
 2. https://reactnative.dev/docs/image
 
 
-```
+```jsx
 const BlogPostPreview = ({title, content, imageUrl}) => {
   return (
     <View>
@@ -226,7 +226,7 @@ PLEASE TRY ON YOUR OWN TO GET IT TO WORK!
 
 Final code should look something similar to this.
 
-```
+```jsx
 import { StyleSheet, Text, View, Image} from 'react-native';
 
 const BlogPostPreview = ({title, content, imageUrl}) => {
