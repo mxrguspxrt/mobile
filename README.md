@@ -129,3 +129,33 @@ Task:
 1. Implement at least 1 element (for example Text or Button from your Figma design).
 2. Upload code for Expo project + Link to Figma to Github
 3. Send the teacher's email the link to Github project 
+
+
+
+## Making our first blog (Using React Native and Expo) (21.09.2022)
+
+### Design your Blog in Figma
+
+1. Your blog has posts. Post has title, text, created_at and picture. Posts are listed so that the latest is first to be seen (ordered by creation date).
+2. On Index Page you will see list of Blog Posts. In list, only title and summary is shown.
+3. When you click on Blog Post on Index Page, you will see all text of Blog Post.
+4. Ideally, there is possibility to comment also.
+5. If you want to use Icons, you can use https://www.figma.com/community/file/1135544811622139774
+6. To get additional visual resources, you can search them from https://www.figma.com/community and https://www.figma.com/community/search?resource_type=mixed&sort_by=popular&query=buttons&editor_type=all (what Chart and Maps you can find and reusein Figma community?)
+
+As a result, you should have designed 2 views in Figma (blog posts lists and details view).
+
+
+### Implement code for your blog
+
+Start from understanding how React Native components work:
+
+1. Read everything from Tutorials section (https://docs.expo.dev/tutorial/planning/)
+2. Read how to use SVG from React Native (https://docs.expo.dev/ui-programming/using-svgs/)
+3. Check different UI libraries supported by React Native (https://docs.expo.dev/guides/userinterface/)
+4. In our next step we will be using https://nativebase.io/ as UI library (Docs -> Installation guide -> Install in Expo project)
+5. You should have opened now https://docs.nativebase.io/install-expo (Use the Plain JS version)
+
+
+
+
