@@ -275,5 +275,5 @@ const styles = StyleSheet.create({
 
 1. Align posts to the left.
 2. Add header to your site (with Blog name)
-3. Cat images come from my Github - upload your custom images to your Github account. How could you upload images to your project without uploading them to internet? (Assets folder + check this manual https://reactnative.dev/docs/images)
+3. Cat images come from my Github - upload your custom images to your Github account. How could you upload images to your project without uploading them to internet? (Assets folder + check this manual https://reactnative.dev/docs/images). You should rename imageUrl to just image and use `image={require("./assets/cat2.jpeg")}` as prop to your component.
 
