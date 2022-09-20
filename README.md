@@ -195,11 +195,12 @@ Important links to read:
 const BlogPostPreview = ({title, content, imageUrl}) => {
   return (
     <View>
-      <Text style={fontSize: "2em"}>{title}</Text>
+      <Text style={{fontSize: "2em"}}>{title}</Text>
       <Text>{content}</Text>
       <Image
+        style={{width: 100, height: 100}}
         source={{
-          uri: imageUrl,
+          uri: imageUrl
         }}
       />
     </View>
@@ -225,6 +226,54 @@ PLEASE TRY ON YOUR OWN TO GET IT TO WORK!
 
 Final code should look something similar to this.
 
+```
+import { StyleSheet, Text, View, Image} from 'react-native';
 
+const BlogPostPreview = ({title, content, imageUrl}) => {
+  return (
+    <View>
+      <Text style={{fontSize: "2em"}}>{title}</Text>
+      <Text>{content}</Text>
+      <Image
+        style={{width: 100, height: 100}}
+        source={{
+          uri: imageUrl
+        }}
+      />
+    </View>
+  );
+};
 
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <BlogPostPreview 
+        title="My first post"
+        content="This is short text of the post"
+        imageUrl="https://github.com/mxrguspxrt/mobile/raw/main/cat1.jpeg"
+      />
+      <BlogPostPreview 
+        title="My second post"
+        content="This is short text of the post"
+        imageUrl="https://github.com/mxrguspxrt/mobile/raw/main/cat2.jpeg"
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+```
+
+### Tasks
+
+1. Align posts to the left.
+2. Add header to your site (with Blog name)
+3. Cat images come from my Github - upload your custom images to your Github account. How could you upload images to your project without uploading them to internet? (Assets folder + check this manual https://reactnative.dev/docs/images)
 
