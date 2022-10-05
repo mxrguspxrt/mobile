@@ -277,3 +277,122 @@ const styles = StyleSheet.create({
 2. Add header to your site (with Blog name)
 3. Cat images come from my Github - upload your custom images to your Github account. How could you upload images to your project without uploading them to internet? (Assets folder + check this manual https://reactnative.dev/docs/images). You should rename imageUrl to just image and use `image={require("./assets/cat2.jpeg")}` as prop to your component.
 
+
+
+## Add details view (Using React Native and Expo) (05.10.2022)
+
+https://reactnavigation.org/docs/hello-react-navigation (You should be using expo version.)
+
+1. Create a new Screen and components for details view.
+2. When user clicks in List view on item, details view opens.
+3. In details view, there are also comments.
+
+
+PLEASE TRY ON YOUR OWN TO GET IT TO WORK!
+
+..
+..
+..
+..
+..
+..
+
+
+Your final code should look something like:
+
+```
+import { StyleSheet, Text, View, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+const BlogPostPreview = ({ title, content, imageUrl }) => {
+  return (
+    <View>
+      <Text style={{ fontSize: "2em" }}>{title}</Text>
+      <Text>{content}</Text>
+      <Image
+        style={{ width: 100, height: 100 }}
+        source={{
+          uri: imageUrl
+        }}
+      />
+    </View>
+  );
+};
+
+const BlogListScreen = () => {
+  return (
+    <View style={styles.container}>
+      <BlogPostPreview
+        title="My first post"
+        content="This is short text of the post"
+        imageUrl="https://github.com/mxrguspxrt/mobile/raw/main/cat1.jpeg"
+      />
+      <BlogPostPreview
+        title="My second post"
+        content="This is short text of the post"
+        imageUrl="https://github.com/mxrguspxrt/mobile/raw/main/cat2.jpeg"
+      />
+    </View>
+  );
+}
+
+const BlogPostDetails = ({ title, content, imageUrl }) => {
+  return (
+    <View>
+      <Text style={{ fontSize: "2em" }}>{title}</Text>
+      <Text>{content}</Text>
+      <Image
+        style={{ width: 200, height: 200 }}
+        source={{
+          uri: imageUrl
+        }}
+      />
+      <Text>Add comments here</Text>
+    </View>
+  );
+};
+
+const BlogDetailsScreen = () => {
+  return (
+    <View style={styles.container}>
+      <BlogPostDetails
+        title="My first post"
+        content="This is short text of the post"
+        imageUrl="https://github.com/mxrguspxrt/mobile/raw/main/cat1.jpeg"
+      />
+    </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={BlogListScreen}
+          options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen name="Details" component={BlogDetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+```
+
+
+### Tasks:
+1. When you click item in list view, details open
+2. Details view must have comments
