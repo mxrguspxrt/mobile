@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
 
 ## Add details view (Using React Native and Expo) (05.10.2022)
 
-https://reactnavigation.org/docs/hello-react-navigation (You should be using expo version.)
+https://reactnavigation.org/docs/hello-react-navigation and https://reactnative.dev/docs/navigation#react-navigation (You should be using expo version.)
 
 1. Create a new Screen and components for details view.
 2. When user clicks in List view on item, details view opens.
