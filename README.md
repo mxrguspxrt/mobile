@@ -300,7 +300,7 @@ PLEASE TRY ON YOUR OWN TO GET IT TO WORK!
 
 Your final code should look something like:
 
-```
+```jsx
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
