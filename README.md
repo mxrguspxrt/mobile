@@ -405,15 +405,14 @@ export default function App() {
 
 Structure of blog-posts.json could look something similar:
 
-```
+```json
 {
   "count": 2,
   "posts": [
-    {"title": "yay", "content": "no way", imageUrl: "https://github.com/mxrguspxrt/mobile/raw/main/cat1.jpeg"},
-    {"title": "nay", "content": "hosey", imageUrl: "https://github.com/mxrguspxrt/mobile/raw/main/cat2.jpeg"}
+    {"title": "yay", "content": "no way", "imageUrl": "https://github.com/mxrguspxrt/mobile/raw/main/cat1.jpeg"},
+    {"title": "nay", "content": "hosey", "imageUrl": "https://github.com/mxrguspxrt/mobile/raw/main/cat2.jpeg"}
   ]
-}
-```
+}```
 
 You need to click Raw button in Github, this takes me to https://raw.githubusercontent.com/mxrguspxrt/mobile/main/blog-posts.json and I can use this URL in my code.
 
