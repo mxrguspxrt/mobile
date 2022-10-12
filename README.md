@@ -396,3 +396,21 @@ export default function App() {
 ### Tasks:
 1. When you click item in list view, details open
 2. Details view must have comments
+
+
+## Load data from external JSON HTTP API (Using React Native and Expo) (12.10.2022)
+
+1. Create blog-posts.json file in your Github that contains list of blog posts
+2. Load data https://reactnative.dev/docs/network
+
+Structure of blog-posts.json could look something similar:
+
+```
+{
+  "count": 2,
+  "posts": [
+    {"title": "yay", "content": "no way"},
+    {"title": "nay", "content": "hosey"}
+  ]
+}
+```
