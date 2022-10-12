@@ -1,0 +1,7 @@
+{
+  "count": 2,
+  "posts": [
+    {"title": "yay", "content": "no way"},
+    {"title": "nay", "content": "hosey"}
+  ]
+}
