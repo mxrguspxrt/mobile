@@ -1,7 +1,7 @@
 {
   "count": 2,
   "posts": [
-    {"title": "yay", "content": "no way", imageUrl: "https://github.com/mxrguspxrt/mobile/raw/main/cat1.jpeg"},
-    {"title": "nay", "content": "hosey", imageUrl: "https://github.com/mxrguspxrt/mobile/raw/main/cat2.jpeg"}
+    {"title": "yay", "content": "no way", "imageUrl": "https://github.com/mxrguspxrt/mobile/raw/main/cat1.jpeg"},
+    {"title": "nay", "content": "hosey", "imageUrl": "https://github.com/mxrguspxrt/mobile/raw/main/cat2.jpeg"}
   ]
 }
