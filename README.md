@@ -429,3 +429,117 @@ PLEASE TRY ON YOUR OWN TO GET IT TO WORK!
 
 Final code should change something similar to this:
 
+```jsx
+import { ActivityIndicator, FlatList, StyleSheet, Text, View, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React, { useEffect, useState } from 'react';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+const BlogPostPreview = ({ title, content, imageUrl }) => {
+  return (
+    <View>
+      <Text style={{ fontSize: "2em" }}>{title}</Text>
+      <Text>{content}</Text>
+      <Image
+        style={{ width: 100, height: 100 }}
+        source={{
+          uri: imageUrl
+        }}
+      />
+    </View>
+  );
+};
+
+const BlogListScreen = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  const getBlogPostsFromApi = async () => {
+    try {
+      const response = await fetch('https://raw.githubusercontent.com/mxrguspxrt/mobile/main/blog-posts.json');
+      const json = await response.json();
+      setData(json.posts);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getBlogPostsFromApi();
+  }, []);
+
+  if (isLoading) {
+    return <View style={styles.container}><ActivityIndicator /></View>
+  }
+
+  return <FlatList
+    data={data}
+    keyExtractor={({ id }, index) => id}
+    renderItem={({ item }) => (
+      <BlogPostPreview
+        title={item.title}
+        content={item.content}
+        imageUrl={item.imageUrl}
+      />
+    )}
+  />
+
+}
+
+const BlogPostDetails = ({ title, content, imageUrl }) => {
+  return (
+    <View>
+      <Text style={{ fontSize: "2em" }}>{title}</Text>
+      <Text>{content}</Text>
+      <Image
+        style={{ width: 200, height: 200 }}
+        source={{
+          uri: imageUrl
+        }}
+      />
+      <Text>Add comments here</Text>
+    </View>
+  );
+};
+
+const BlogDetailsScreen = () => {
+  return (
+    <View style={styles.container}>
+      <BlogPostDetails
+        title="My first post"
+        content="This is short text of the post"
+        imageUrl="https://github.com/mxrguspxrt/mobile/raw/main/cat1.jpeg"
+      />
+    </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={BlogListScreen}
+          options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen name="Details" component={BlogDetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+```
+
