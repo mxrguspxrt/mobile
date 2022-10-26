@@ -613,3 +613,8 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 ```
+
+Task:
+
+1. Integrate http://localhost:3000 with your app
+2. Add functionality to add posts
