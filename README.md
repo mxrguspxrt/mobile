@@ -547,7 +547,7 @@ export default function App() {
 
 We start with simple in memory database (that you can replace with Postgre or any other preferred DB in the future):
 
-```
+```javascript
 // mkdir express_blog
 // cd express_blog
 // npm install express --save
