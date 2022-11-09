@@ -618,3 +618,14 @@ Task:
 
 1. Integrate http://localhost:3000 with your app
 2. Add functionality to add posts
+
+
+Hints:
+
+1. In Expo app you need to change URL from which posts are fetched
+2. Once this URL has been fixed, your data loading still does not work. Please see error for Mobile App in console. (Error should be related to CORS headers. Using Google, find fix for your Express server.)
+
+
+## Finish up list view for loading data (09.11.2022)
+
+...
