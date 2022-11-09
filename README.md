@@ -669,10 +669,216 @@ Please try to get it to work on your own (imports, onChangeText, onPress, fetch 
 Here is final code for React Native (do not cheat and do not use this, you should do it own your own):
 
 ```
+import { ActivityIndicator, FlatList, StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React, { useEffect, useState } from 'react';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+const BlogPostPreview = ({ id, title, content, imageUrl, navigation }) => {
+  return (
+    <View onClick={() => navigation.navigate('Details', { id, title, content, imageUrl })}>
+      <Text style={{ fontSize: "2em" }}>{title}</Text>
+      <Text>{content}</Text>
+      <Image
+        style={{ width: 100, height: 100 }}
+        source={{
+          uri: imageUrl
+        }}
+      />
+    </View>
+  );
+};
+
+const BlogListScreen = ({ navigation }) => {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  const getBlogPostsFromApi = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/posts');
+      const json = await response.json();
+      setData(json.posts);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getBlogPostsFromApi();
+  }, []);
+
+  if (isLoading) {
+    return <View style={styles.container}><ActivityIndicator /></View>
+  }
+
+  return <FlatList
+    data={data}
+    keyExtractor={({ id }, index) => id}
+    renderItem={({ item }) => (
+      <BlogPostPreview
+        id={item.id}
+        title={item.title}
+        content={item.content}
+        imageUrl={item.imageUrl}
+        navigation={navigation}
+      />
+    )}
+  />
+
+}
+
+const BlogPostDetails = ({ id, title, content, imageUrl }) => {
+  const [name, onChangeName] = React.useState("Batman");
+  const [comment, onChangeComment] = React.useState("BATMAN!!");
+
+  const sendComment = () => {
+    fetch('http://localhost:3000/add-comment', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        comment,
+        postId: id
+      })
+    });
+  }
+
+  return (
+    <SafeAreaView>
+      <Text style={{ fontSize: "2em" }}>{title}</Text>
+      <Text>{content}</Text>
+      <Image
+        style={{ width: 200, height: 200 }}
+        source={{
+          uri: imageUrl
+        }}
+      />
+      <Text>Add comments here</Text>
+      <Text>Name:</Text>
+      <TextInput style={{ border: "thin solid black" }} value={name} onChangeText={onChangeName} />
+      <Text>Comment:</Text>
+      <TextInput style={{ border: "thin solid black" }} value={comment} onChangeText={onChangeComment} />
+      <Button onPress={() => sendComment()} title="Send comment " />
+    </SafeAreaView>
+  );
+};
+
+const BlogDetailsScreen = () => {
+  return (
+    <View style={styles.container}>
+      <BlogPostDetails
+        id="1"
+        title="My first post"
+        content="This is short text of the post"
+        imageUrl="https://github.com/mxrguspxrt/mobile/raw/main/cat1.jpeg"
+      />
+    </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={BlogListScreen}
+          options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen name="Details" component={BlogDetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 ```
 
 Here is final code for Express server (do not cheat and do not use this, you should do it own your own):
 
 
 ```
+// mkdir express_blog
+// cd express_blog
+// npm install express --save
+// node my-server.js
+
+// save following contents into my-server.json
+
+const express = require('express')
+const cors = require('cors')
+const app = express()
+app.use(cors())
+app.use(express.json());
+const port = 3000
+
+let postsData = {
+  "count": 2,
+  "posts": [
+    {
+      "id": "1",
+      "title": "My first post",
+      "content": "Yay!"
+    },
+    {
+      "id": "2",
+      "title": "My second post",
+      "content": "Yay!"
+    }
+  ]
+}
+
+let commentsData = [
+  {
+    postId: "1",
+    name: "Batman",
+    comment: "Nice post"
+  },
+  {
+    postId: "2",
+    name: "Batman",
+    comment: "Also nice post"
+  },
+  {
+    postId: "1",
+    name: "Superman",
+    comment: "I do not agree"
+  },
+]
+
+app.get('/posts', (req, res) => {
+  res.json(postsData)
+})
+
+app.post('/add-comment', (req, res) => {
+  console.log("Received post on /add-comment", req.body)
+  commentsData.push(req.body);
+  res.json(postsData)
+})
+
+app.get('/post/:postId', (req, res) => {
+  res.json(postsData.posts.find(x => x.id == req.params.postId))
+})
+
+app.get('/post/:postId/comments', (req, res) => {
+  res.json(commentsData.filter(x => x.postId == req.params.postId))
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 ```
