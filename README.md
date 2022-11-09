@@ -632,7 +632,7 @@ Task:
 Hints:
 
 1. In Expo app you need to change URL from which posts are fetched
-2. Once this URL has been fixed, your data loading still does not work. Please see error for Mobile App in console. (Error should be related to CORS headers. Using Google, find fix for your Express server.)
+2. Once this URL has been fixed, your data loading still does not work. Please see error for Mobile App in console. (Error should be related to CORS headers. Using Google, find fix for your Express server. https://expressjs.com/en/resources/middleware/cors.html)
 
 
 ## Finish up list view for loading data and start adding data (09.11.2022)
