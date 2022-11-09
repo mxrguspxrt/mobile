@@ -668,7 +668,7 @@ Please try to get it to work on your own (imports, onChangeText, onPress, fetch 
 
 Here is final code for React Native (do not cheat and do not use this, you should do it own your own):
 
-```
+```jsx
 import { ActivityIndicator, FlatList, StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -811,7 +811,7 @@ export default function App() {
 Here is final code for Express server (do not cheat and do not use this, you should do it own your own):
 
 
-```
+```js
 // mkdir express_blog
 // cd express_blog
 // npm install express --save
