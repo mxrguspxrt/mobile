@@ -555,6 +555,13 @@ We start with simple in memory database (that you can replace with Postgre or an
 
 // save following contents into my-server.json
 
+// mkdir express_blog
+// cd express_blog
+// npm install express --save
+// node my-server.js
+
+// save following contents into my-server.json
+
 const express = require('express')
 const app = express()
 const port = 3000
@@ -563,12 +570,12 @@ let postsData = {
   "count": 2,
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "My first post",
       "content": "Yay!"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "My second post",
       "content": "Yay!"
     }
@@ -577,36 +584,38 @@ let postsData = {
 
 let commentsData = [
   {
-    postId: 1,
+    postId: "1",
     name: "Batman",
     comment: "Nice post"
   },
   {
-    postId: 2,
+    postId: "2",
     name: "Batman",
     comment: "Also nice post"
   },
   {
-    postId: 1,
+    postId: "1",
     name: "Superman",
     comment: "I do not agree"
   },
 ]
 
 app.get('/posts', (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*")
   res.json(postsData)
 })
 
-app.get('/add-post', (req, res) => {
+app.post('/add-comment', (req, res) => {
+  commentsData.push(req.comment);
   res.json(postsData)
 })
 
 app.get('/post/:postId', (req, res) => {
-  res.json(postsData.posts.find(x => x.id == parseInt(req.params.postId)))
+  res.json(postsData.posts.find(x => x.id == req.params.postId))
 })
 
 app.get('/post/:postId/comments', (req, res) => {
-  res.json(commentsData.filter(x => x.postId == parseInt(req.params.postId)))
+  res.json(commentsData.filter(x => x.postId == req.params.postId))
 })
 
 app.listen(port, () => {
@@ -626,6 +635,44 @@ Hints:
 2. Once this URL has been fixed, your data loading still does not work. Please see error for Mobile App in console. (Error should be related to CORS headers. Using Google, find fix for your Express server.)
 
 
-## Finish up list view for loading data (09.11.2022)
+## Finish up list view for loading data and start adding data (09.11.2022)
 
-...
+By now you should have:
+1. Express server running and data is loaded from data into React Native app list view for posts
+2. When you click on post in list view, it opens up details view (https://reactnative.dev/docs/navigation)
+
+```
+// you should change your code for navigation something like this
+const BlogPostPreview = ({ id, title, content, imageUrl, navigation }) => {
+  return (
+    <View onClick={() => navigation.navigate('Details', { id, title, content, imageUrl })}>
+```
+
+
+If either of those points is not working, please try to get to work on your own. Or contact teacher.
+
+Now please: 
+1. add https://reactnative.dev/docs/textinput and https://reactnative.dev/docs/button for comment form in post details view (Name TextInput, Comment TextInput, Submit comment button). 
+2. add action, that if Submit comment button is pressed, then POST is done to http://localhost:3000/add-comment (that is your express server) (https://reactnative.dev/docs/network)
+4. to verify, that comment was added visit: http://localhost:3000/post/1/comments
+
+
+
+```
+Please try to get it to work on your own (imports, onChangeText, onPress, fetch etc are done correctly?) Use "console.log" to debug!
+..
+..
+..
+..
+```
+
+Here is final code for React Native (do not cheat and do not use this, you should do it own your own):
+
+```
+```
+
+Here is final code for Express server (do not cheat and do not use this, you should do it own your own):
+
+
+```
+```
